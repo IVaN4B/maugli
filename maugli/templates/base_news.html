@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block left-sidebar %}
+	sidebar
+{% endblock left-sidebar %}
+{% block content %}
+	{% if entries %}
+		{% for entry in entries %}
+			<div class="entry">
+			<h2>{{ entry.title }}</h2>
+			<p>{{ entry.text }}</p>
+			<p>{{ entry.date }}</p>
+			</div>
+		{% endfor %}
+	{% else %}
+	{% include "snippets/msg.html" with type="warning" text="Новостей нет" %}
+	{% endif %}
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% if title %}
+<div class="title">
+	{{ title }}
+</div>
+{% endif %}
+<div class="menu {{ menu.name }}">
+<ul>
+{% for link in links %}
+	<li><a href="{{ link.get_url }}">{{ link.title }}</a></li>
+{% endfor %}
+</ul>
+</div>

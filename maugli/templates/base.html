@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{{ section.title }}</title>
+	<link rel="stylesheet" href="{{ css_path }}base.css">
+	{% if section.style %}
+	<link rel="stylesheet" href="{{ section.style }}">
+	{% endif %}
+</head>
+<body>
+<div id="wrapper">
+	<div id="head-wrapper">
+	<div id="left-block"></div>
+	<div id="right-block"></div>
+	<div id="head">
+		<div id="cart-block">
+		{% block cart %}{% endblock cart %}
+		</div> <!-- #cart-block -->
+		<div id="profile-block">
+		{% block profile %}{% endblock profile %}
+		</div> <!-- #profile-block -->
+	</div> <!-- #head -->
+	</div> <!-- #head-wrapper -->
+	<div id="nav">
+	{% load menu %}
+	{% menu "nav" %}
+	</div> <!-- #nav -->
+	<div id="middle">
+	<div class="container">
+		<div id="content">
+			<div id="notification-area">
+				{% block notify %}{% endblock notify %}
+			</div> <!-- #notification-area -->
+		{% block content %}{% endblock content %}
+		</div> <!-- #content -->
+	</div> <!-- .container -->
+	<div id="left-sidebar">
+	{% block left-sidebar %}
+		sidebar
+	{% endblock left-sidebar %}
+	</div> <!-- #left-sidebar -->
+	{% block right-sidebar %}{% endblock right-sidebar %}
+	</div> <!-- #middle -->
+</div> <!-- #wrapper -->
+<div id="footer">
+{% block footer %}
+	footer
+{% endblock footer %}
+</div> <!-- #footer -->
+</body>
+</html>

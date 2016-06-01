@@ -1,0 +1,6 @@
+maugli/static/*
+*.sqlite3
+*.egg-info
+*.pot
+*.py[co]
+__pycache__
