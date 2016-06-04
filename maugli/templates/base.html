@@ -1,9 +1,10 @@
+{% load menu %}
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>{{ section.title }}</title>
-	<link rel="stylesheet" href="{{ css_path }}base.css">
+	<link rel="stylesheet" href="{{ css_style }}">
 	{% if section.style %}
 	<link rel="stylesheet" href="{{ section.style }}">
 	{% endif %}
@@ -23,12 +24,14 @@
 	</div> <!-- #head -->
 	</div> <!-- #head-wrapper -->
 	<div id="nav">
-	{% load menu %}
-	{% menu "nav" %}
+	{% menu "nav" title="" %}
 	</div> <!-- #nav -->
 	<div id="middle">
 	<div class="container">
 		<div id="content">
+			<div class="title">
+				{{ section.content_title }}
+			</div>
 			<div id="notification-area">
 				{% block notify %}{% endblock notify %}
 			</div> <!-- #notification-area -->
@@ -37,16 +40,41 @@
 	</div> <!-- .container -->
 	<div id="left-sidebar">
 	{% block left-sidebar %}
-		sidebar
+		<div class="title">
+			{% url 'store:catalog' as catalog_url %}
+			<a href="{{ catalog_url }}">Каталог</a>
+		</div>
 	{% endblock left-sidebar %}
 	</div> <!-- #left-sidebar -->
+	{{ darequest }}
 	{% block right-sidebar %}{% endblock right-sidebar %}
 	</div> <!-- #middle -->
 </div> <!-- #wrapper -->
 <div id="footer">
-{% block footer %}
-	footer
-{% endblock footer %}
+<div class="container">
+{% menu "store" %}
+{% menu "company" %}
+{% menu "partners" %}
+{% menu "hiring" %}
+{% menu "customers" %}
+<div id="info">
+	{{ info.label }}
+	<div id="social">
+		{% for link in info.social_links %}
+			<a href="{{ link.url }}">
+				<img src="{{ link.title }}" alt="">
+			</a>
+		{% endfor %}
+	</div>
+	<div id="made-by">
+		<a href="{{ info.author_link }}">{{ info.author_label }}</a>
+	</div>
+	<div id="stats">
+		Запросов: {{ info.connection.queries|length }},
+		Время загрузки: {{ load_time|floatformat:3 }}
+	</div>
+</div> <!-- #info -->
+</div> <!-- .container -->
 </div> <!-- #footer -->
 </body>
 </html>
