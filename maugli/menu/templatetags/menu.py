@@ -4,11 +4,12 @@ from menu.models import Menu
 
 register = template.Library()
 
-@register.inclusion_tag('snippets/menu.html')
-def menu(name, *args, **kwargs):
+@register.inclusion_tag('snippets/menu.html', takes_context=True)
+def menu(context, name, *args, **kwargs):
 	menu = Menu.objects.get(name=name)
-	links = menu.links.all()
-	title = ""
+	links = menu.links.order_by("weight").all()
+	title = menu.title
 	if "title" in kwargs:
 		title = kwargs["title"]
-	return {'title': title, 'menu': menu, 'links': links }
+	return {'title': title, 'menu': menu, 'links': links,
+			'url': context['section']['url'] }
