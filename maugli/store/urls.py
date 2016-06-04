@@ -5,5 +5,5 @@ from .views import CatalogView
 
 app_name = 'store'
 urlpatterns = [
-    url(r'^$', CatalogView.as_view()),
+    url(r'^$', CatalogView.as_view(), name="catalog"),
 ]
