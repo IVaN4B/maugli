@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from datetime import date
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE_CLASSES = [
+	'conf.middlewares.StatsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware',
@@ -108,9 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -130,3 +132,6 @@ STATIC_ROOT = '/home/ivan/root/data/dev/synced/site-dev/django/pub/conf/static/'
 SITE_NAME = 'ООО "Маугли" — Лучшие игрушки в Перми' 
 CSS_PATH = STATIC_URL+'site/css/'
 URL_ROOT = '/django'
+SITE_INFO = '© 1993— '+str(date.today().year)+' '+SITE_NAME
+AUTHOR_INFO = 'Разработка сайта: Иван Чебыкин'
+AUTHOR_LINK = 'http://ivan4b.ru'
