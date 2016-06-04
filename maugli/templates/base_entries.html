@@ -1,14 +1,19 @@
 {% extends "base.html" %}
 {% block left-sidebar %}
-	sidebar
+	{% load menu %}
+	{% menu "nav" %}
 {% endblock left-sidebar %}
 {% block content %}
 	{% if entries %}
 		{% for entry in entries %}
 			<div class="entry">
+			{% if not is_page %}
 			<h2>{{ entry.title }}</h2>
-			<p>{{ entry.text }}</p>
-			<p>{{ entry.date }}</p>
+			{% endif %}
+			<p>{{ entry.text|safe }}</p>
+			{% if entry.type == "article" %}
+				<p>{{ entry.date }}</p>
+			{% endif %}
 			</div>
 		{% endfor %}
 	{% else %}
