@@ -4,9 +4,9 @@ from .models import MenuLink, Menu
 
 @admin.register(Menu)
 class MenuAdmin(admin.ModelAdmin):
-	list_display = ('name', 'title')
+    list_display = ('name', 'title')
 
 @admin.register(MenuLink)
 class MenuLinkAdmin(admin.ModelAdmin):
-	list_display = ('title', 'url', 'get_menu_list', 'weight')
+    list_display = ('title', 'url', 'get_menu_list', 'weight')
 
