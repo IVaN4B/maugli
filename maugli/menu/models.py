@@ -1,4 +1,5 @@
 from django.db import models
+
 from conf import settings
 
 class Menu(models.Model):
@@ -9,10 +10,16 @@ class Menu(models.Model):
 class MenuLink(models.Model):
 	title =	models.CharField(max_length=255)
 	url	  = models.CharField(max_length=255)
-	menu  = models.ForeignKey(Menu, on_delete=models.CASCADE, default=1,
-									related_name="links")
+	menu  = models.ManyToManyField(Menu, blank=True, related_name="links")
+	weight = models.IntegerField(default=0)
 	def __str__(self):
 		return "%s" % (self.title)
 
 	def get_url(self):
 		return settings.URL_ROOT+self.url
+
+	def get_menu_list(self):
+		return ", ".join([p.title for p in self.menu.all()])
+
+	def get_entry_list(self):
+		return ", ".join([p.title for p in self.entry.all()])

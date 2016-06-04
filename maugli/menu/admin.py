@@ -8,5 +8,5 @@ class MenuAdmin(admin.ModelAdmin):
 
 @admin.register(MenuLink)
 class MenuLinkAdmin(admin.ModelAdmin):
-	list_display = ('title', 'url', 'menu')
+	list_display = ('title', 'url', 'get_menu_list', 'weight')
 
