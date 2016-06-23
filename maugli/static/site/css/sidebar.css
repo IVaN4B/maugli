@@ -1,0 +1,21 @@
+/* Left Sidebar
+-----------------------------------------------------------------------------*/
+#left-sidebar {
+	position: relative;
+	float: left;
+	text-align: left;
+	width: 245px;
+	left: -250px;
+	margin-right: 200px;
+}
+
+#left-sidebar .nav ul li a{
+	color: #000;
+	font-size: 16px;
+	margin-top: 5px;
+}
+
+#left-sidebar .nav ul li a:hover, #left-sidebar ul li a.selected {
+	background: #e3f4e1;
+}
+/*---------------------------------------------------------------------------*/

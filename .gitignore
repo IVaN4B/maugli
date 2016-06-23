@@ -1,4 +1,4 @@
-maugli/static/*
+maugli/static/admin/*
 *.sqlite3
 *.egg-info
 *.pot

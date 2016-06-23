@@ -1,0 +1,49 @@
+/* Head
+-----------------------------------------------------------------------------*/
+#head-wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+#left-block, #right-block{
+	width: 50%;
+	height: 100px;
+	margin-bottom: -100px;
+	z-index: 1;
+	position: relative;
+}
+
+#left-block {
+	float: left;
+	background: #FEE900;
+}
+
+#right-block {
+	float: right;
+	background: #ff064e;
+}
+
+#head{
+	width: 1200px;
+	height: 100px;
+	position: relative;
+	z-index: 9999;
+	margin: 0 auto;
+	clear: both;
+	background: url("/static/site/img/head.png") no-repeat transparent;
+	background-position: center;
+}
+
+#cart-block, #profile-block{
+	float: left;
+	width: 50%;
+	height: 100px;
+}
+
+#cart-block {
+}
+
+#profile-block {
+}
+
+/*---------------------------------------------------------------------------*/
