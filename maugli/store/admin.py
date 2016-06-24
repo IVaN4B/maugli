@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from store.models import Category, Column, Product
+from store.models import Category, Product, TitleColumn, PriceColumn
 
 admin.site.register(Category)
-admin.site.register(Column)
 admin.site.register(Product)
-# Register your models here.
+admin.site.register(TitleColumn)
+admin.site.register(PriceColumn)
