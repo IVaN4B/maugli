@@ -1,9 +1,31 @@
 {% extends "base.html" %}
+{% load humanize %}
 {% block content %}
-	test
+	{% if products %}
+		{% for p in products %}
+			<div class="block p10 m5 product">
+				<div class="image">
+				<img src="{{ p.get_image_url }}" alt="">
+				</div>
+				<div class="info">
+					<div class="info-content">
+						<div class="title p10">
+							<a href="#">{{ p.get_title }}</a>
+						</div>
+						<div class="price left-right-p10 top-m5">
+						{{ p.get_price|intcomma }} &#8381;
+						</div>
+					</div>
+					<div class="add-button left-right-p10 right-m10"></div>
+				</div>
+			</div>
+		{% endfor %}
+	{% endif%}
 {% endblock content %}
 {% block right-sidebar %}
-<div id="right-sidebar">
-	right sidebar
+<div id="right-sidebar" class="block">
+	<div class="title top-bottom-p5">
+		Бренды
+	</div>
 </div>
 {% endblock right-sidebar %}

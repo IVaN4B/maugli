@@ -28,8 +28,8 @@
 	</div> <!-- #nav -->
 	<div id="middle">
 	<div class="container">
-		<div id="content">
-			<div class="title">
+		<div id="content" {% block content-class %}{% endblock %}>
+			<div class="title block top-bottom-p5">
 				{{ section.content_title }}
 			</div>
 			<div id="notification-area">
@@ -38,9 +38,9 @@
 		{% block content %}{% endblock content %}
 		</div> <!-- #content -->
 	</div> <!-- .container -->
-	<div id="left-sidebar">
+	<div id="left-sidebar" class="block">
 	{% block left-sidebar %}
-		<div class="title">
+		<div class="title block top-bottom-p5">
 			{% url 'store:catalog' as catalog_url %}
 			<a href="{{ catalog_url }}">Каталог</a>
 		</div>

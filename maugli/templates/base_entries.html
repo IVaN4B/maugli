@@ -3,17 +3,33 @@
 	{% load menu %}
 	{% menu "nav" %}
 {% endblock left-sidebar %}
+{% block content-class %}class="block"{% endblock %}
 {% block content %}
 	{% if entries %}
 		{% for entry in entries %}
-			<div class="entry">
 			{% if not is_page %}
-			<h2>{{ entry.title }}</h2>
+				<div class="block m5 entry">
+			{% else %}
+				<div class="entry">
 			{% endif %}
-			<p>{{ entry.text|safe }}</p>
+
 			{% if entry.type == "article" %}
-				<p>{{ entry.date }}</p>
+				<p class="date">{{ entry.date|date:"SHORT_DATE_FORMAT" }}</p>
 			{% endif %}
+
+			{% if not is_page %}
+			<h2 class="title">
+				<a href="{{ entry.get_link }}">{{ entry.title }}</a>
+			</h2>
+			{% endif %}
+
+			<p class="text">
+			{% if not is_page %}
+				{{ entry.text|safe|truncatechars:200 }}
+			{% else %}
+				{{ entry.text|safe }}
+			{% endif %}
+			</p>
 			</div>
 		{% endfor %}
 	{% else %}
