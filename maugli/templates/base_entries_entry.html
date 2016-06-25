@@ -1,0 +1,17 @@
+{% extends "base_entries.html" %}
+{% load staticfiles %}
+{% block section-style %}
+	<link rel="stylesheet" href="{% static "site/css/entries.css" %}">
+{% endblock section-style %}
+{% block section-title %} {{ entry.title }} — {% endblock %}
+{% block content-title %} {{ entry.title }} {% endblock %}
+{% block content %}
+	<div class="entry">
+		{% if entry.type == "article" %}
+			<p class="date">{{ entry.date|date:"SHORT_DATE_FORMAT" }}</p>
+		{% endif %}
+		<p class="text">
+			{{ entry.text|safe }}
+		</p>
+	</div>
+{% endblock content %}

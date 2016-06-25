@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+{% block section-style %}
+	<link rel="stylesheet" href="{% static "site/css/news.css" %}">
+{% endblock section-style %}
+{% block section-title %} Новости — {% endblock %}
+{% block content-title %} Новости {% endblock %}
 {% block left-sidebar %}
 	{% load menu %}
 	{% menu "nav" %}
@@ -7,28 +13,18 @@
 {% block content %}
 	{% if entries %}
 		{% for entry in entries %}
-			{% if not is_page %}
-				<div class="block m5 entry">
-			{% else %}
-				<div class="entry">
-			{% endif %}
+			<div class="block m5 entry">
 
 			{% if entry.type == "article" %}
 				<p class="date">{{ entry.date|date:"SHORT_DATE_FORMAT" }}</p>
 			{% endif %}
 
-			{% if not is_page %}
 			<h2 class="title">
 				<a href="{{ entry.get_link }}">{{ entry.title }}</a>
 			</h2>
-			{% endif %}
 
 			<p class="text">
-			{% if not is_page %}
 				{{ entry.text|safe|truncatechars:200 }}
-			{% else %}
-				{{ entry.text|safe }}
-			{% endif %}
 			</p>
 			</div>
 		{% endfor %}
