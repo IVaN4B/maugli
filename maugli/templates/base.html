@@ -1,13 +1,13 @@
 {% load menu %}
+{% load staticfiles %}
+{% with site_name="ООО \"Маугли\" — Лучшие игрушки в Перми" %}
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>{{ section.title }}</title>
-	<link rel="stylesheet" href="{{ css_style }}">
-	{% if section.style %}
-	<link rel="stylesheet" href="{{ section.style }}">
-	{% endif %}
+	<title>{% block section-title %}{% endblock %}{{ site_name }}</title>
+	<link rel="stylesheet" href="{% static "site/css/style.css" %}">
+	{% block section-style %}{% endblock section-style %}
 </head>
 <body>
 <div id="wrapper">
@@ -30,7 +30,8 @@
 	<div class="container">
 		<div id="content" {% block content-class %}{% endblock %}>
 			<div class="title block top-bottom-p5">
-				{{ section.content_title }}
+				{#{{ section.content_title }}#}
+				{% block content-title %}{% endblock %}
 			</div>
 			<div id="notification-area">
 				{% block notify %}{% endblock notify %}
@@ -58,7 +59,8 @@
 {% menu "hiring" %}
 {% menu "customers" %}
 <div id="info">
-	{{ info.label }}
+	{% now "Y" as current_year %}
+	&copy; 1993 — {{ current_year }} {{ site_name }}
 	<div id="social">
 		{% for link in info.social_links %}
 			<a href="{{ link.url }}">
@@ -67,7 +69,7 @@
 		{% endfor %}
 	</div>
 	<div id="made-by">
-		<a href="{{ info.author_link }}">{{ info.author_label }}</a>
+		<a href="http://ivan4b.ru">Разработка сайта: Иван Чебыкин</a>
 	</div>
 	<div id="stats">
 		Запросов: {{ info.connection.queries|length }},
@@ -78,3 +80,4 @@
 </div> <!-- #footer -->
 </body>
 </html>
+{% endwith %}

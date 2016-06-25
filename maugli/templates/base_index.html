@@ -1,5 +1,10 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% load humanize %}
+{% block section-style %}
+<link rel="stylesheet" href="{% static "site/css/index.css" %}">
+{% endblock section-style %}
+{% block content-title %}Новые поступления{% endblock %}
 {% block content %}
 	{% if products %}
 		{% for p in products %}
