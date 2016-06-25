@@ -130,9 +130,4 @@ STATIC_ROOT = '/home/ivan/root/data/dev/synced/site-dev/django/pub/conf/static/'
 
 # Site vars
 
-SITE_NAME = 'ООО "Маугли" — Лучшие игрушки в Перми'
-CSS_PATH = STATIC_URL+'site/css/'
 URL_ROOT = '/django'
-SITE_INFO = '© 1993 — '+str(date.today().year)+' '+SITE_NAME
-AUTHOR_INFO = 'Разработка сайта: Иван Чебыкин'
-AUTHOR_LINK = 'http://ivan4b.ru'
