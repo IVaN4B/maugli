@@ -18,16 +18,9 @@ class EntriesView(TemplateView):
 class EntryView(TemplateView):
     template_name = "base_entries_entry.html"
 
-    def get_section_link(self):
-        link = "/"
-        link_match = self.request.resolver_match.args
-        if link_match:
-            link = "/"+link_match[0]
-        return link
-
     def get_context_data(self, **kwargs):
         context = super(EntryView, self).get_context_data(**kwargs)
-        entry_link = self.get_section_link()
+        entry_link = "/"+self.kwargs["entry_link"]
         links = MenuLink.objects.filter(url=entry_link)
         if not links:
             raise Http404

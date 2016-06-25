@@ -9,5 +9,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^catalog/', include("store.urls")),
     url(r'^news/', EntriesView.as_view(), name="news"),
-    url(r'^(\S+)/', include("entries.urls")),
+    url(r'^(?P<entry_link>\S+)/', include("entries.urls")),
 ]

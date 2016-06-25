@@ -8,11 +8,11 @@ register = template.Library()
 def menu(context, name, *args, **kwargs):
     menu = Menu.objects.get(name=name)
     url = '/'
-    url_match = context['request'].resolver_match.args
-    if url_match:
-        url = "/"+url_match[0]
+    match = context['request'].resolver_match.kwargs
+    if 'entry_link' in match:
+        url += match['entry_link']
     links = menu.links.order_by("weight").all()
     title = menu.title
     if "title" in kwargs:
         title = kwargs["title"]
-    return {'title': title, 'menu': menu, 'links': links, 'url': url }
+    return {'title': title, 'menu': menu, 'links': links, 'url': url, }
