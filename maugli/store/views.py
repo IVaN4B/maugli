@@ -1,9 +1,6 @@
 from django.http import HttpResponse
+from django.views.generic import TemplateView
 from django.conf import settings
 
-from conf.views import BaseView
-
-class CatalogView(BaseView):
+class CatalogView(TemplateView):
     template_name = "base_catalog.html"
-    title = "Каталог"
-    content_title = "Список игрушек"
