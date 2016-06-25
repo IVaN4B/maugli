@@ -16,7 +16,7 @@ class MenuLink(models.Model):
     def __str__(self):
         return "%s" % (self.title)
 
-    def get_url(self):
+    def get_absolute_url(self):
         return settings.URL_ROOT+self.url
 
     def get_menu_list(self):

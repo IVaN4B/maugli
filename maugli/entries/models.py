@@ -28,8 +28,8 @@ class Entry(models.Model):
         return ", ".join([p.title for p in self.links.all()])
     get_link_list.short_description = 'links'
 
-    def get_link(self):
+    def get_absolute_url(self):
         link = self.links.first()
         if link:
-            return link.get_url()
+            return link.get_absolute_url()
         return ""

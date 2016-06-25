@@ -8,7 +8,7 @@
 {% for link in links %}
 	<li>
 	<a {% if url == link.url %} class="selected"
-	{% endif %} href="{{ link.get_url }}">{{ link.title }}</a></li>
+	{% endif %} href="{{ link.get_absolute_url }}">{{ link.title }}</a></li>
 {% endfor %}
 </ul>
 </div>
