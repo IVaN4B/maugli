@@ -20,7 +20,7 @@ class EntryView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(EntryView, self).get_context_data(**kwargs)
-        entry_link = "/"+self.kwargs["entry_link"]
+        entry_link = self.kwargs["entry_link"]
         links = MenuLink.objects.filter(url=entry_link)
         if not links:
             raise Http404
