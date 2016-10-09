@@ -1,10 +1,8 @@
 /* Content
 -----------------------------------------------------------------------------*/
 #middle .container {
-	width: 100%;
+	width: 80%;
 	float: left;
-	overflow: hidden;
-	margin-right: -100%;
 }
 
 #content{

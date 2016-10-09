@@ -26,14 +26,11 @@ body {
 /* Middle
 -----------------------------------------------------------------------------*/
 #middle {
-	border-left: 250px solid transparent;
-	position: relative;
+	clear: both;
+	overflow: hidden;
 }
 
 #middle:after {
-	display: table;
-	clear: both;
-	content: '';
 }
 /*---------------------------------------------------------------------------*/
 

@@ -1,6 +1,6 @@
-/* Nav
+/* Navbar
 -----------------------------------------------------------------------------*/
-#nav {
+#navbar {
 	width: 100%;
 	clear: both;
 	height: 40px;
@@ -8,13 +8,22 @@
 	margin-bottom: 10px;
 }
 
-#nav .nav {
-	width: 40%;
-	float: none;
-	margin: 0 auto;
+#navbar .search {
+	width: 20%;
+	float: left;
 }
 
-#nav .nav ul li a {
+#navbar .ask {
+	width: 20%;
+	float: left;
+}
+
+#navbar .nav {
+	width: 60%;
+	float: left;
+}
+
+#navbar .nav ul li a {
 	float: left;
 	height: 40px;
 	padding: 0 10px;
@@ -24,18 +33,18 @@
 	font-weight: bold;
 }
 
-#nav .nav ul li a:hover, .nav ul li a.selected {
+#navbar .nav ul li a:hover, .nav ul li a.selected {
 	background: #2DA22D;
 }
 
 /* Search
 -----------------------------------------------------------------------------*/
 
-#nav #search {
+#navbar #search {
 	float: left;
 }
 
-#nav #search input[type=text] {
+#navbar #search input[type=text] {
 	float: left;
 	display: block;
 	width: 100%;
@@ -43,7 +52,7 @@
 	font-size: 15px;
 }
 
-#nav #search input[type=submit] {
+#navbar #search input[type=submit] {
 	float: left;
 }
 /*---------------------------------------------------------------------------*/

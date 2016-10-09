@@ -1,12 +1,9 @@
 /* Left Sidebar
 -----------------------------------------------------------------------------*/
 #left-sidebar {
-	position: relative;
 	float: left;
 	text-align: left;
-	width: 245px;
-	left: -250px;
-	margin-right: 200px;
+	width: 20%;
 }
 
 #left-sidebar .nav ul li a{
