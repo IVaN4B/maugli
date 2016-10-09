@@ -1,0 +1,19 @@
+{% load humanize %}
+<div class="block p10 m5 product">
+	<div class="image">
+	<img src="{{ product.get_image_url }}" alt="">
+	</div>
+	<div class="info">
+		<div class="info-content">
+			<div class="title p10">
+				<a href="#">{{ product.get_title }}</a>
+			</div>
+			<div class="info-additional left-p10">
+				<div class="price top-p5">
+				{{ product.get_price|intcomma }} &#8381;
+				</div>
+				<div class="add-button"></div>
+			</div>
+		</div>
+	</div>
+</div>

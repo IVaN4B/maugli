@@ -23,10 +23,20 @@
 		</div> <!-- #profile-block -->
 	</div> <!-- #head -->
 	</div> <!-- #head-wrapper -->
-	<div id="nav">
-	{% menu "nav" title="" %}
-	</div> <!-- #nav -->
+	<div id="navbar">
+		<div class="search">&nbsp;</div>
+		{% menu "nav" title="" %}
+		<div class="ask">&nbsp;</div>
+	</div> <!-- #navbar -->
 	<div id="middle">
+	<div id="left-sidebar" class="block">
+	{% block left-sidebar %}
+		<div class="title block top-bottom-p5">
+			{% url 'store:catalog' as catalog_url %}
+			<a href="{{ catalog_url }}">Каталог</a>
+		</div>
+	{% endblock left-sidebar %}
+	</div> <!-- #left-sidebar -->
 	<div class="container">
 		<div id="content" {% block content-class %}{% endblock %}>
 			<div class="title block top-bottom-p5">
@@ -39,15 +49,6 @@
 		{% block content %}{% endblock content %}
 		</div> <!-- #content -->
 	</div> <!-- .container -->
-	<div id="left-sidebar" class="block">
-	{% block left-sidebar %}
-		<div class="title block top-bottom-p5">
-			{% url 'store:catalog' as catalog_url %}
-			<a href="{{ catalog_url }}">Каталог</a>
-		</div>
-	{% endblock left-sidebar %}
-	</div> <!-- #left-sidebar -->
-	{{ darequest }}
 	{% block right-sidebar %}{% endblock right-sidebar %}
 	</div> <!-- #middle -->
 </div> <!-- #wrapper -->

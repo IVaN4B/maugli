@@ -1,31 +1,12 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% load humanize %}
+{% load product-list %}
 {% block section-style %}
 <link rel="stylesheet" href="{% static "site/css/index.css" %}">
 {% endblock section-style %}
 {% block content-title %}Новые поступления{% endblock %}
 {% block content %}
-	{% if products %}
-		{% for p in products %}
-			<div class="block p10 m5 product">
-				<div class="image">
-				<img src="{{ p.get_image_url }}" alt="">
-				</div>
-				<div class="info">
-					<div class="info-content">
-						<div class="title p10">
-							<a href="#">{{ p.get_title }}</a>
-						</div>
-						<div class="price left-right-p10 top-m5">
-						{{ p.get_price|intcomma }} &#8381;
-						</div>
-					</div>
-					<div class="add-button left-right-p10 right-m10"></div>
-				</div>
-			</div>
-		{% endfor %}
-	{% endif%}
+	{% show_product_list "new" %}
 {% endblock content %}
 {% block right-sidebar %}
 <div id="right-sidebar" class="block">

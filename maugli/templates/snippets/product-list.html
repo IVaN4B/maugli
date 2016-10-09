@@ -1,0 +1,6 @@
+{% load product %}
+{% if products %}
+	{% for p in products %}
+		{% product p %}
+	{% endfor %}
+{% endif%}

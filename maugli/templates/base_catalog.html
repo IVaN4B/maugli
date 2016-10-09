@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% load product-list %}
 {% block section-title %}
 Список игрушек —
 {% endblock %}
 {% block content-title %}Список игрушек{% endblock %}
 {% block content %}
-	catalog
+	{% show_product_list %}
 {% endblock content %}
